@@ -6,11 +6,6 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-// Database Constant
-const (
-	MYSQLTimestampFormat = `2006-01-02 15:04:05`
-)
-
 // client ...
 var (
 	client *Database
