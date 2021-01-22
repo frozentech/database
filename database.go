@@ -40,6 +40,11 @@ func (me *Database) GetConnection() *sqlx.DB {
 	return me.connection
 }
 
+// SetConnection ...
+func (me *Database) SetConnection(connection *sqlx.DB) {
+	me.connection = connection
+}
+
 // IsClose ...
 func (me *Database) IsClose() bool {
 	if me.connection == nil || me.isClose {
@@ -60,6 +65,15 @@ func Destroy() {
 	if client != nil {
 		client.Destroy()
 	}
+}
+
+// SetConnection ...
+func SetConnection(connection *sqlx.DB) {
+	if client == nil {
+		client = New()
+	}
+
+	client.SetConnection(connection)
 }
 
 // GetConnection ...
